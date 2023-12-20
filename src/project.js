@@ -1,7 +1,7 @@
 export class Project {
     constructor(title) {
         this.title = title;
-        this.tasks = [];
+        this.tasks = task;
     }
 
     addTask(task) {
@@ -19,4 +19,13 @@ export class Project {
     getTitle() {
         return this.title;
     }
+}
+
+//Project creation open and closing form
+export const openProjectCreation = () => {
+    document.querySelector('#project-form-container').style.display = 'block'
+}
+
+export const closeProjectCreation = () => {
+    document.querySelector('#project-form-container').style.display = 'none'
 }
