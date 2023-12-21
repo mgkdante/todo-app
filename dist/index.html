@@ -6,48 +6,62 @@
     <title>Document Title</title>
 </head>
 <body>
-    <div id="content">
-        <button id="create-project-button">Create Project</button>
-        <div id="project-tabs-container"></div>
-        <div id="task-list-container"></div>
-        <div id="project-form-container" style="display: none">
-            <form id="project-form">
-                <h2>Add a project</h2>
-                <div>
-                    <label>
-                        <input type="text" name="title" id="title" placeholder="Project Title"/>
-                    </label>
-                </div>
-                <div>
-                    <button type="submit">Add Project</button>
-                </div>
-                <div>
-                    <button type="button" id="close-project-form-button">Close</button>
-                </div>
-            </form>
-        </div>
-        <div id="task-form-container" style="display: none">
-            <form id="task-form">
-                <h2>Add a task</h2>
-                <div>
-                    <label>
-                        <input type="text" name="title" id="taskTitle" placeholder="Task Title"/>
-                    </label>
-                </div>
-                 <div>
-                    <label>
-                        <input type="text" name="title" id="taskDescription" placeholder="Task Description"/>
-                    </label>
-                </div>
-                <div>
-                    <button type="submit">Add Task</button>
-                </div>
-                <div>
-                    <button type="button" id="close-task-form-button">Close</button>
-                </div>
-            </form>
-        </div>
+<div id="content">
+    <button id="create-project-button">Create Project</button>
+    <div id="project-tabs-container"></div>
+    <div id="task-list-container"></div>
+    <div id="project-form-container" style="display: none">
+        <form id="project-form">
+            <h2>Add a project</h2>
+            <div>
+                <label>
+                    <input type="text" name="title" id="title" placeholder="Project Title" required/>
+                </label>
+            </div>
+            <div>
+                <button type="submit">Add Project</button>
+            </div>
+            <div>
+                <button type="button" id="close-project-form-button">Close</button>
+            </div>
+        </form>
     </div>
-    <script src="bundle.js"></script>
+    <div id="task-form-container" style="display: none">
+        <form id="task-form">
+            <h2>Add a task</h2>
+            <div>
+                <label>
+                    <input type="text" name="title" id="taskTitle" placeholder="Task Title" required/>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="text" name="description" id="taskDescription" placeholder="Task Description" required/>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <select name="priority" id="taskPriority">
+                        <option value="1">High</option>
+                        <option value="2">Mid</option>
+                        <option value="3" selected>Low</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="date" name="dueDate" id="taskDueDate" required/>
+                </label>
+            </div>
+            <div>
+                <button type="submit">Add Task</button>
+            </div>
+            <div>
+                <button type="button" id="close-task-form-button">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="bundle.js"></script>
 </body>
 </html>

@@ -1,7 +1,9 @@
+import { closeTaskCreation } from './task'
+
 export class Project {
     constructor(title) {
         this.title = title;
-        this.tasks = task;
+        this.tasks = [];
     }
 
     addTask(task) {
@@ -23,6 +25,7 @@ export class Project {
 
 //Project creation open and closing form
 export const openProjectCreation = () => {
+    closeTaskCreation()
     document.querySelector('#project-form-container').style.display = 'block'
 }
 
