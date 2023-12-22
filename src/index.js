@@ -44,6 +44,7 @@ const createProject = (e) => {
     addProjectToList(title)
     closeProjectCreation()
     projectTabsContainer.innerHTML = ""
+    projectTabsContainer.appendChild(createProjectButton)
     renderAllProjectTasks(projectList)
     // Render an empty task list for the new project
     renderTaskListContainer(projectList[projectList.length - 1])
@@ -56,6 +57,7 @@ projectForm.addEventListener('submit', createProject)
 const renderProjectTab = (project) => {
     const tab = document.createElement('div')
     tab.textContent = project.title
+    tab.classList.add('project-card')
     projectTabsContainer.appendChild(tab)
 
     tab.addEventListener('click', () => {
@@ -99,21 +101,27 @@ const renderTaskListContainer = (project) => {
 
 const renderTaskCard = (task) => {
     const taskCardDiv = document.createElement('div')
+    taskCardDiv.classList.add('task-card')
 
     const titleDiv = document.createElement('div')
     titleDiv.textContent = task.title
+    titleDiv.classList.add('task-title')
 
     const descriptionDiv = document.createElement('div')
     descriptionDiv.textContent = task.description
+    descriptionDiv.classList.add('task-description')
 
     const dueDateDiv = document.createElement('div')
     dueDateDiv.textContent = task.dueDate
+    dueDateDiv.classList.add('task-due-date')
 
     const priorityDiv = document.createElement('div')
     priorityDiv.textContent = task.priority
+    priorityDiv.classList.add('task-priority')
 
 
     const completedButton = document.createElement('input')
+    completedButton.classList.add('task-status')
     completedButton.type = 'checkbox'
     completedButton.checked = task.completed
     completedButton.addEventListener('change', () => {
@@ -129,6 +137,7 @@ const renderTaskCard = (task) => {
 
     const deleteButton = document.createElement('Button')
     deleteButton.textContent = 'Delete Task'
+    deleteButton.classList.add('task-delete')
 
     deleteButton.addEventListener('click', () => {
         const confirmDelete = confirm('Are you sure you want to delete this task?');
