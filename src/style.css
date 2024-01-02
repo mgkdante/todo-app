@@ -10,12 +10,12 @@
     width: clamp(750px, 60%, 1250px);
     height: clamp(750px, 60%, 1000px);
     margin: auto;
-    box-shadow: 5px 5px 10px grey ;
+    box-shadow: 5px 5px 10px grey;
     grid-template-columns: 1fr 4fr;
     border-radius: 16px;
 }
 
-#project-form-container, #task-form-container{
+#project-form-container, #task-form-container {
     display: block;
     position: fixed;
     z-index: 2;
@@ -23,12 +23,55 @@
     margin: 5% auto; /* Only centers horizontally not vertically! */
     left: 0;
     right: 0;
-    box-shadow: 5px 5px 10px grey ;
+    box-shadow: 5px 5px 10px grey;
     border-radius: 16px;
 }
 
-#project-form{
+#project-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+#project-tabs-container {
+}
+
+.project-card {
+}
+
+#task-list-container {
+
+}
+
+.task-card {
+
+}
+
+.first-line-task {
+
+}
+
+.task-title {
+
+}
+
+.task-status {
+
+}
+
+.task-description {
+
+}
+
+.task-due-date {
+
+}
+
+.task-priority {
+
+}
+
+.task-delete {
+
+}
+
