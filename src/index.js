@@ -1,39 +1,33 @@
 import './style.css'
-import {
-    closeProjectButton,
-    closeProjectCreation,
-    createProject,
-    createProjectButton,
-    openProjectCreation,
-    projectForm,
-    renderProjectTab,
-} from "./Projects/domManipulationProject";
 
 import {
-    createTask,
+    closeProjectButton,
+    createOrEditProject,
+    createProjectButton,
+    toggleProjectCreation,
+    projectForm,
+    renderProjectTab,
+} from "./Project/domManipulationProject";
+import {defaultProject} from "./Project/project";
+
+import {
+    createOrEditTask,
     renderTaskListContainer,
     taskForm,
 } from "./Tasks/domManipulationTask";
-import {defaultProject} from "./Projects/project";
-
-
-//Open close project form
-createProjectButton.addEventListener('click', () => {
-    openProjectCreation(projectForm)
-})
-closeProjectButton.addEventListener('click', () => {
-    closeProjectCreation(projectForm)
-})
-
-
-//Submit project
-projectForm.addEventListener('submit', createProject)
-
 
 // Render the default project
 renderProjectTab(defaultProject);
 renderTaskListContainer(defaultProject)
 
-taskForm.addEventListener('submit', createTask)
+// Event listeners for a project form
+createProjectButton.addEventListener('click', () => {
+    toggleProjectCreation(true)
+});
+closeProjectButton.addEventListener('click', () => {
+    toggleProjectCreation(false)
+});
+projectForm.addEventListener('submit', createOrEditProject);
 
-
+// Event listener for a task form
+taskForm.addEventListener('submit', createOrEditTask);

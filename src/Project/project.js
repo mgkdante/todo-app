@@ -29,14 +29,14 @@ const defaultProject =
         {
             "title": "Task1",
             "description": "Desc1",
-            "dueDate": "2023-12-29",
+            "dueDate": "2026-12-29",
             "priority": "3",
             "completed": false
         },
         {
             "title": "Task2",
             "description": "Desc2",
-            "dueDate": "2023-12-31",
+            "dueDate": "2026-12-31",
             "priority": "1",
             "completed": false
         },

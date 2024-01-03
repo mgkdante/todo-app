@@ -9,20 +9,22 @@
 <div id="body-wrapper">
     <div id="content">
         <div id="project-tabs-container">
+            <div id="project-creation">
             <button id="create-project-button">Create Project</button>
+            </div>
         </div>
         <div id="task-list-container"></div>
     </div>
     <div id="project-form-container" style="display: none">
         <form id="project-form">
-            <h2>Add a project</h2>
+            <h2 id="project-form-title">Add a project</h2>
             <div>
                 <label>
                     <input type="text" name="title" id="title" placeholder="Project Title" required/>
                 </label>
             </div>
             <div>
-                <button type="submit">Add Project</button>
+                <button type="submit" id="create-edit-project-button">Add Project</button>
             </div>
             <div>
                 <button type="button" id="close-project-form-button">Close</button>
@@ -31,15 +33,15 @@
     </div>
     <div id="task-form-container" style="display: none">
         <form id="task-form">
-            <h2>Add a task</h2>
+            <h2 id="task-form-title">Add a task</h2>
             <div>
                 <label>
-                    <input type="text" name="title" id="taskTitle" placeholder="Task Title" required/>
+                    <input type="text" name="title" id="taskTitle" placeholder="Task Title"/>
                 </label>
             </div>
             <div>
                 <label>
-                    <input type="text" name="description" id="taskDescription" placeholder="Task Description" required/>
+                    <input type="text" name="description" id="taskDescription" placeholder="Task Description"/>
                 </label>
             </div>
             <div>
@@ -53,11 +55,11 @@
             </div>
             <div>
                 <label>
-                    <input type="date" name="dueDate" id="taskDueDate" required/>
+                    <input type="date" name="dueDate" id="taskDueDate"/>
                 </label>
             </div>
             <div>
-                <button type="submit">Add Task</button>
+                <button type="submit" id="task-creation-edit-button">Add Task</button>
             </div>
             <div>
                 <button type="button" id="close-task-form-button">Close</button>
