@@ -1,5 +1,7 @@
 # Task List app
 
+http://mgkdante.github.io/todo-app
+
 This is a simple project management app built with JavaScript. It allows you to create projects, add tasks to these projects, and manage your tasks.
 
 ## Features
