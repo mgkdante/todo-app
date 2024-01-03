@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Title</title>
+</head>
+<body>
+<div id="body-wrapper">
+    <div id="content">
+        <div id="project-tabs-container">
+            <div id="project-creation">
+            <button id="create-project-button">Create Project</button>
+            </div>
+        </div>
+        <div id="task-list-container"></div>
+    </div>
+    <div id="project-form-container" style="display: none">
+        <form id="project-form">
+            <h2 id="project-form-title">Add a project</h2>
+            <div>
+                <label>
+                    <input type="text" name="title" id="title" placeholder="Project Title" required/>
+                </label>
+            </div>
+            <div>
+                <button type="submit" id="create-edit-project-button">Add Project</button>
+            </div>
+            <div>
+                <button type="button" id="close-project-form-button">Close</button>
+            </div>
+        </form>
+    </div>
+    <div id="task-form-container" style="display: none">
+        <form id="task-form">
+            <h2 id="task-form-title">Add a task</h2>
+            <div>
+                <label>
+                    <input type="text" name="title" id="taskTitle" placeholder="Task Title"/>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="text" name="description" id="taskDescription" placeholder="Task Description"/>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <select name="priority" id="taskPriority">
+                        <option value="1">High</option>
+                        <option value="2">Mid</option>
+                        <option value="3" selected>Low</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="date" name="dueDate" id="taskDueDate"/>
+                </label>
+            </div>
+            <div>
+                <button type="submit" id="task-creation-edit-button">Add Task</button>
+            </div>
+            <div>
+                <button type="button" id="close-task-form-button">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="bundle.js"></script>
+</body>
+</html>
