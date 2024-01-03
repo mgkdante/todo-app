@@ -261,7 +261,5 @@ footer {
     align-items: center;
     font-size: 1.1rem;
     /* Add these properties */
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+    color: rgba(255, 255, 255, 0.5);
 }

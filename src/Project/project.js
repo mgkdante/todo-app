@@ -45,7 +45,7 @@ const defaultProject =
 // Add the default project to the project list
 try {
     const loadedProjects = JSON.parse(localStorage.getItem('projectList'));
-    if (loadedProjects.length > 0) {
+    if (loadedProjects && loadedProjects.length > 0) {
         projectList = loadedProjects.map(project => {
             const newProject = new Project(project.title);
             newProject.tasks = project.tasks.map(task => new Task(task.title, task.description, task.dueDate, task.priority));
@@ -54,8 +54,8 @@ try {
     } else {
         projectList = [defaultProject];
     }
-} catch (e) {
-    throw new Error(e);
+} catch {
+    projectList = [defaultProject];
 }
 
 const updateLocalStorage = () => {
