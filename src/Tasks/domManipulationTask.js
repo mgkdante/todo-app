@@ -1,7 +1,7 @@
 import {isPast, isValid, parseISO} from "date-fns";
 import {toggleProjectCreation} from "../Project/domManipulationProject";
 import {Task} from "./task";
-import {updateLocalStorage} from "../Project/project";
+import {updateLocalStorage, projectList} from "../Project/project";
 
 // Function to select DOM elements
 const selectElement = (selector) => document.querySelector(selector);
@@ -123,9 +123,8 @@ const createOrEditTask = (e, isEdit = false, taskToEdit = null) => {
     }
 
     updateLocalStorage();
-
     toggleTaskCreation(false);
-    renderTaskListContainer(currentProject); // Re-render the task list, including the "Add Task" button
+    renderTaskListContainer(currentProject);// Re-render the task list, including the "Add Task" button
     resetForm();
 }
 
@@ -190,6 +189,7 @@ const addTaskCardEventListeners = (task, taskCardDiv, completedButton, editButto
         if (confirmDelete) {
             currentProject.removeTask(task);
             renderTaskListContainer(currentProject);
+            updateLocalStorage();
         }
     });
 }
@@ -244,7 +244,11 @@ const validateDate = (dateString) => {
 
 const addTaskToList = (title, description, dueDate, priority = 3) => {
     const task = new Task(title, description, dueDate, priority)
-    currentProject.addTask(task)
+
+    const projectToUpdate = projectList.find(project => project.title === currentProject.title);
+    if (projectToUpdate) {
+        projectToUpdate.tasks.push(task);
+    }
 }
 
 const resetForm = () => {

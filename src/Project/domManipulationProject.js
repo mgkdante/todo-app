@@ -59,6 +59,7 @@ const createOrEditProject = (e, isEdit = false, projectToEdit = null) => {
     projectCreation.appendChild(createProjectButton)
     projectTabsContainer.appendChild(projectCreation)
     renderAllProjectTasks(projectList)
+    projectForm.reset()
 }
 
 const createEditButton = () => {

@@ -17,10 +17,6 @@ class Project {
         updateLocalStorage();
     }
 
-    getTasks() {
-        return this.tasks;
-    }
-
     getTitle() {
         return this.title;
     }
@@ -31,15 +27,15 @@ let projectList
 const defaultProject =
     new Project('Default', [
         {
-            "title": "Task1",
-            "description": "Desc1",
+            "title": "Task Template 1",
+            "description": "This is a template for your first task. Replace this text with your task description.",
             "dueDate": "2026-12-29",
             "priority": "3",
             "completed": false
         },
         {
-            "title": "Task2",
-            "description": "Desc2",
+            "title": "Task Template 2",
+            "description": "This is a template for your second task. Replace this text with your task description.",
             "dueDate": "2026-12-31",
             "priority": "1",
             "completed": false
@@ -47,15 +43,19 @@ const defaultProject =
     ])
 
 // Add the default project to the project list
-if (localStorage.getItem('projectList')) {
+try {
     const loadedProjects = JSON.parse(localStorage.getItem('projectList'));
-    projectList = loadedProjects.map(project => {
-        const newProject = new Project(project.title);
-        newProject.tasks = project.tasks.map(task => new Task(task.title, task.description, task.dueDate, task.priority));
-        return newProject;
-    });
-} else {
-    projectList = [defaultProject];
+    if (loadedProjects.length > 0) {
+        projectList = loadedProjects.map(project => {
+            const newProject = new Project(project.title);
+            newProject.tasks = project.tasks.map(task => new Task(task.title, task.description, task.dueDate, task.priority));
+            return newProject;
+        });
+    } else {
+        projectList = [defaultProject];
+    }
+} catch (e) {
+    throw new Error(e);
 }
 
 const updateLocalStorage = () => {
@@ -73,4 +73,4 @@ const checkProjectExists = (title, projectList) => {
 
 
 // Export statements
-export { projectList, addProjectToList, checkProjectExists, updateLocalStorage}
+export {projectList, addProjectToList, checkProjectExists, updateLocalStorage}
