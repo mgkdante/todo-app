@@ -6,7 +6,7 @@ import {
     createProjectButton,
     toggleProjectCreation,
     projectForm,
-    renderProjectTab,
+    renderProjectTab
 } from "./Project/domManipulationProject";
 import { projectList} from "./Project/project";
 

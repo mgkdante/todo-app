@@ -147,5 +147,6 @@ export {
     closeProjectButton,
     projectForm,
     renderProjectTab,
-    renderTaskListContainer
+    renderTaskListContainer,
+    renderAllProjectTasks
 }
