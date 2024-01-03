@@ -137,7 +137,7 @@ button:hover {
 }
 
 #task-list-container {
-    grid-auto-rows: 250px;
+    grid-auto-rows: fit-content(100%);
 }
 
 .task-card {

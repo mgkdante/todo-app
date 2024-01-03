@@ -17,7 +17,7 @@ This is a simple project management app built with JavaScript. It allows you to 
 1. Clone this repository: `git clone https://github.com/yourusername/project-management-app.git`
 2. Navigate to the project directory: `cd project-management-app`
 3. Install the dependencies: `npm install`
-4. Start the application: `npm start`
+4. Start the application: `npx webpack --watch`
 
 ## Usage
 
