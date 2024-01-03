@@ -8,7 +8,7 @@ import {
     projectForm,
     renderProjectTab,
 } from "./Project/domManipulationProject";
-import {defaultProject} from "./Project/project";
+import { projectList} from "./Project/project";
 
 import {
     createOrEditTask,
@@ -17,8 +17,10 @@ import {
 } from "./Tasks/domManipulationTask";
 
 // Render the default project
-renderProjectTab(defaultProject);
-renderTaskListContainer(defaultProject)
+projectList.forEach(project => {
+    renderProjectTab(project);
+    renderTaskListContainer(project);
+});
 
 // Event listeners for a project form
 createProjectButton.addEventListener('click', () => {

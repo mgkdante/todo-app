@@ -1,4 +1,4 @@
-import {addProjectToList, checkProjectExists, projectList} from "./project";
+import {addProjectToList, checkProjectExists, projectList, updateLocalStorage} from "./project";
 import {closeTaskCreation, renderTaskListContainer, taskContainer} from "../Tasks/domManipulationTask";
 
 //Project DOM elements
@@ -52,6 +52,8 @@ const createOrEditProject = (e, isEdit = false, projectToEdit = null) => {
         }
     }
 
+    updateLocalStorage();
+
     toggleProjectCreation(false)
     projectTabsContainer.innerHTML = ""
     projectCreation.appendChild(createProjectButton)
@@ -96,6 +98,7 @@ const addProjectCardEventListeners = (tab, project, editButton, deleteButton) =>
             const index = projectList.indexOf(project);
             if (index > -1) {
                 projectList.splice(index, 1);
+                updateLocalStorage();
             }
             projectCreation.appendChild(createProjectButton)
             projectTabsContainer.innerHTML = ""
@@ -144,4 +147,5 @@ export {
     closeProjectButton,
     projectForm,
     renderProjectTab,
+    renderTaskListContainer
 }

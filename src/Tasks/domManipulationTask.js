@@ -1,6 +1,7 @@
 import {isPast, isValid, parseISO} from "date-fns";
 import {toggleProjectCreation} from "../Project/domManipulationProject";
 import {Task} from "./task";
+import {updateLocalStorage} from "../Project/project";
 
 // Function to select DOM elements
 const selectElement = (selector) => document.querySelector(selector);
@@ -76,7 +77,7 @@ const createElement = (type, textContent, className) => {
 }
 
 const priorityToString = (priority) => {
-    switch(priority) {
+    switch (priority) {
         case '1':
             return 'Low';
         case '2':
@@ -92,7 +93,7 @@ const getTaskFormData = () => {
     const description = selectElement('#taskDescription').value;
     const priority = selectElement('#taskPriority').value;
     const dueDate = selectElement('#taskDueDate').value;
-    return { title, description, priority, dueDate };
+    return {title, description, priority, dueDate};
 }
 
 const updateTask = (task, formData) => {
@@ -121,9 +122,10 @@ const createOrEditTask = (e, isEdit = false, taskToEdit = null) => {
         createNewTask(formData);
     }
 
+    updateLocalStorage();
+
     toggleTaskCreation(false);
-    clearTaskContainer();
-    renderTasks(renderTaskCard);
+    renderTaskListContainer(currentProject); // Re-render the task list, including the "Add Task" button
     resetForm();
 }
 
@@ -148,7 +150,21 @@ const createTaskCardElements = (task) => {
     const editButton = createElement('button', 'Edit Task', 'task-edit');
     const deleteButton = createElement('button', 'Delete Task', 'task-delete');
 
-    return { taskCardDiv, firstLineTaskCard, titleDiv, completedButton, descriptionLabel, descriptionDiv, dueDateLabel, dueDateDiv, priorityLabel, priorityDiv, lastLineTaskCard, editButton, deleteButton };
+    return {
+        taskCardDiv,
+        firstLineTaskCard,
+        titleDiv,
+        completedButton,
+        descriptionLabel,
+        descriptionDiv,
+        dueDateLabel,
+        dueDateDiv,
+        priorityLabel,
+        priorityDiv,
+        lastLineTaskCard,
+        editButton,
+        deleteButton
+    };
 }
 
 const addTaskCardEventListeners = (task, taskCardDiv, completedButton, editButton, deleteButton) => {
@@ -187,7 +203,21 @@ const styleTaskCardIfPastDue = (task, taskCardDiv) => {
 }
 
 const renderTaskCard = (task) => {
-    const { taskCardDiv, firstLineTaskCard, titleDiv, completedButton, descriptionLabel, descriptionDiv, dueDateLabel, dueDateDiv, priorityLabel, priorityDiv, lastLineTaskCard, editButton, deleteButton } = createTaskCardElements(task);
+    const {
+        taskCardDiv,
+        firstLineTaskCard,
+        titleDiv,
+        completedButton,
+        descriptionLabel,
+        descriptionDiv,
+        dueDateLabel,
+        dueDateDiv,
+        priorityLabel,
+        priorityDiv,
+        lastLineTaskCard,
+        editButton,
+        deleteButton
+    } = createTaskCardElements(task);
     addTaskCardEventListeners(task, taskCardDiv, completedButton, editButton, deleteButton);
     styleTaskCardIfPastDue(task, taskCardDiv);
 
@@ -223,7 +253,6 @@ const resetForm = () => {
     selectElement('#taskPriority').value = '1';
     selectElement('#taskDueDate').value = '';
 }
-
 
 
 export {
